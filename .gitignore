@@ -1,0 +1,11 @@
+
+*.DS_Store
+*.AppleDouble
+*.LSOverride
+
+javawork/.metadata
+javawork/Javawork/build
+javawork/Javawork/.settings
+javawork/Javawork/src/main/webapp
+javawork/Javawork/.classpath
+javawork/Javawork/.project
