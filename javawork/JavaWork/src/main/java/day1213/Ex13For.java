@@ -19,8 +19,13 @@ public class Ex13For {
 		
 		
 		for (int i = 0; i < 5; i++) {
-			System.out.print("나이를 입력하시오. ");
+			System.out.print((i + 1) + "번째 나이를 입력하시오. ");
 			n = sc.nextInt();
+			// 0~100 세를 벗어나는 경우 다시 입력(인원 수 제외)
+			if (n < 0 || n > 100) {
+				i--;
+				continue;
+			}
 			under_40 += n < 40 ? 1 : 0;
 			ageSum += n;			
 		}
