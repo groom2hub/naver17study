@@ -1,5 +1,8 @@
 package day1218;
 
+import java.util.Random;
+import java.util.Scanner;
+
 public class Ex6Object {
 	// static 변수는 인스턴스 변수 없이도 접근 가능
 	static int x =10;
