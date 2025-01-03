@@ -63,7 +63,7 @@ select * from person limit 2, 3; -- 2번글부터(시작은 0번) 3개만 가져
 select * from person where age >= 20 limit 1, 2;
 
 -- update
-update person set blood = 'O',age = 18 where name = '고릴라';
+update person set blood = 'O', age = 18 where name = '고릴라';
 
 -- delete
 delete from person where name = '강호동';
