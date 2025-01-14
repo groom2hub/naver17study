@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <style>
+            body * {
+                font-family: 'Jua';
+            }
+
+            .lottocontainer {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .lottocontainer>.mylotto {
+                background-color: #dddddd;
+                margin: 20px 100px;
+                width: 500px;
+                height: 100px;
+                border-radius: 30px;
+                padding: 15px 20px;
+                display: flex;
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                position: relative;
+            }
+
+            .lottocontainer>.mylotto>.lotto {
+                background-color: green;
+                width: 60px;
+                height: 60px;
+                border-radius: 100px;
+                margin: 5px;
+                line-height: 60px;
+                text-align: center;
+                font-size: 20px;
+                color: white;
+            }
+
+            .btnlotto {
+                margin: 10px;
+                transform: translateY(-50%);
+            }
+        </style>
+
+        <script>
+            function generateRandomNumbers() {
+                let num = new Array(6);
+                for (let i = 0; i < 6; i++) {
+                    let rnd;
+                    do {
+                        rnd = Math.floor(Math.random() * 45) + 1;
+                    } while (num.includes(rnd));
+                    num[i] = rnd;
+                }
+                return num.sort((a, b) => a - b);
+            }
+
+            window.onload = function () {
+                const lotto = document.querySelectorAll(".lottocontainer>.mylotto>.lotto");
+
+                function updateLottoNumbers() {
+                    let lottoNumbers = generateRandomNumbers();
+                    for (let i = 0; i < 6; i++) {
+                        const ball = lotto[i];
+                        ball.innerText = lottoNumbers[i];
+
+                        // 색상 설정
+                        if (lottoNumbers[i] <= 10) {
+                            ball.style.backgroundColor = "#fbc400";
+                        } else if (lottoNumbers[i] <= 20) {
+                            ball.style.backgroundColor = "#ff7272";
+                        } else if (lottoNumbers[i] <= 30) {
+                            ball.style.backgroundColor = "#aaaaaa";
+                        } else if (lottoNumbers[i] <= 40) {
+                            ball.style.backgroundColor = "#b0d840";
+                        } else {
+                            ball.style.backgroundColor = "#00a2ea";
+                        }
+                    }
+                }
+
+                // 초기 로또 번호 설정
+                updateLottoNumbers();
+
+                // 버튼 클릭 이벤트
+                document.querySelector("#btnlotto").onclick = function () {
+                    updateLottoNumbers();
+                };
+            };
+        </script>
+    </head>
+
+    <body>
+        <div class="lottocontainer">
+            <div style="margin: 30px 100px;" class="mydate">
+                <h5 style="font-size: 30px;"><b style="color: red;">1234</b>회 로또</h5>
+                <script>
+                    let date = new Date();
+                    document.write(`<h6>${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}</h6>`);
+                </script>
+            </div>
+            <div class="mylotto">
+                <div class="lotto"><p></p></div>
+                <div class="lotto"><p></p></div>
+                <div class="lotto"><p></p></div>
+                <div class="lotto"><p></p></div>
+                <div class="lotto"><p></p></div>
+                <div class="lotto"><p></p></div>
+            </div>
+            <button type="button" class="btn btn-success btnlotto" id="btnlotto">로또 구하기</button>
+        </div>
+    </body>
+</html>
