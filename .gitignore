@@ -9,3 +9,14 @@ javawork/Javawork/.settings
 javawork/Javawork/src/main/webapp
 javawork/Javawork/.classpath
 javawork/Javawork/.project
+/.metadata/
+
+Servers
+JspProject/.metadata
+JspProject/build
+JspProject/.settings
+JspProject/src/main/webapp/META-INF
+JspProject/src/main/webapp/WEB-INF
+JspProject/.classpath
+JspProject/.project
+JspProject/.gitignore
