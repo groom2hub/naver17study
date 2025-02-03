@@ -1,0 +1,18 @@
+<%@ page import="org.json.simple.JSONObject" %>
+<%@ page language="java" contentType="application/json; charset=UTF-8"
+    pageEncoding="UTF-8" %>
+
+<%
+    // Retrieve the 'myname' parameter from the request
+    String myname = request.getParameter("myname");
+
+    // Create a JSON object and populate it with data
+    JSONObject jsonResponse = new JSONObject();
+    jsonResponse.put("myname", myname);
+    jsonResponse.put("address", "서울시 강남구");
+    jsonResponse.put("hp", "010-2222-3333");
+
+    // Set response content type and send JSON response
+    response.setContentType("application/json");
+    response.getWriter().write(jsonResponse.toString());
+%>
